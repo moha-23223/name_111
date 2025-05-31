@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly 2.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="scorm-welcome-screen">
+        <h1>Welcome to the SCORM Module</h1>
+        <button id="complete-module">Complete Module</button>
+        <h2>SCORM Game</h2>
+        <button id="start-game">Start Game</button>
+        <div class="score-section">
+            <span>Score:</span>
+            <input type="number" id="score-input" min="1" max="1000" step="1" value="0">
+            <button id="submit-score">Submit Score</button>
+        </div>
+        <button id="get-game-state">Get Game State</button>
+    </div>
+    
+    <div class="language-toggle">
+        <button id="language-toggle">RU / EN</button>
+    </div>
+
+    <!-- زر القائمة -->
+    <div class="menu-toggle">
+        <button id="menu-button">☰</button>
+    </div>
+
+    <!-- زر علامة الاستفهام -->
+    <div class="help-toggle">
+        <button id="help-button">?</button>
+    </div>
+
+    <!-- شاشة البداية -->
+    <div id="home-screen" class="screen">
+        <div class="content-container">
+            <div class="fly-logo">
+                <img src="fly3.png" alt="Fly Logo">
+            </div>
+            <h1 id="title">Муха 2.0</h1>
+            <button id="play-button">Играть</button>
+            <button id="settings-button">Настройки</button>
+            <button id="exit-button">Выход</button>
+        </div>
+    </div>
+
+    <!-- شاشة اختيار الصعوبة -->
+    <div id="difficulty-screen" class="screen" style="display: none;">
+        <div class="content-container">
+            <h2 id="choose-difficulty">Выберите сложность</h2>
+            <button id="easy-button">Легко</button>
+            <button id="normal-button">Нормально</button>
+            <button id="hard-button">Сложно</button>
+            <button id="customize-button">Настроить</button>
+            <button id="back-button">رجوع</button>
+        </div>
+    </div>
+
+    <!-- شاشة الإعدادات المخصصة -->
+    <div id="custom-settings-screen" class="screen" style="display: none;">
+        <div class="content-container">
+            <h2 id="settings-title">Настройки</h2>
+            <div class="setting">
+                <label id="simplicity-label">Простота:</label>
+                <div class="setting-controls">
+                    <button class="decrease">-</button>
+                    <span id="simplicity-value">5</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <div class="setting">
+                <label id="moves-label">Числа:</label>
+                <div class="setting-controls">
+                    <button class="decrease">-</button>
+                    <span id="moves-value">8</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <div class="setting">
+                <label id="speed-label">Скорость мухи:</label>
+                <div class="setting-controls">
+                    <button class="decrease">-</button>
+                    <span id="speed-value">1.0</span>
+                    <button class="increase">+</button>
+                </div>
+            </div>
+            <button id="apply-settings-button">Применить</button>
+        </div>
+    </div>
+
+    
+    <div id="game-screen" class="screen" style="display: none;">
+        <div class="sound-toggle">
+            <button id="sound-button">🔊</button>
+        </div>
+        <div class="content-container">
+            <h2 id="moves-left">Осталось ходов: 8</h2>
+            <p id="current-move" style="display: none;">Текущий ход:</p>
+            <h2 id="result-message" style="display: none;"></h2>
+            <button id="start-game-button" style="display: block;">Начать</button>
+            <div id="grid" class="grid"></div>
+        </div>
+        <button id="restart-button" style="display: none;">Рестарт</button>
+        <button id="back-to-difficulty">رجوع</button>
+    </div>
+
+    
+    <div id="instructions-screen" style="display: none;">
+        <div class="instruction-page" id="page-1">
+            <h2>Правила</h2>
+            <p>Перед вами — виртуальное поле, по которому перемещается муха. Ваша задача — внимательно следить за её передвижениями и точно указать её конечную позицию после всех ходов.</p>
+
+            <button class="next-page">→</button>
+            <button class="close-instructions">X</button>
+        </div>
+        <div class="instruction-page" id="page-2" style="display: none;">
+            <h2>Правила</h2>
+            <p>В начале игры вы увидите стартовое положение мухи, но как только ходы начнутся, поле станет пустым. Вы будете слышать голосовые команды, указывающие направление движения мухи.</p>
+            <button class="prev-page">←</button>
+            <button class="next-page">→</button>
+            <button class="close-instructions">X</button>
+        </div>
+        <div class="instruction-page" id="page-3" style="display: none;">
+            <h2>Правила</h2>
+            <p>Ваша цель — мысленно отслеживать её путь и после завершения ходов кликнуть на ту клетку, где, по вашему мнению, она остановилась. Сможете ли вы удержать муху в поле внимания? Удачи!</p>
+            <button class="prev-page">←</button>
+            <button class="close-instructions">X</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
